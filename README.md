@@ -1,157 +1,142 @@
-# Assignment 2 – Part 2: Database Integration and CRUD API
+# Assignment 3 
 
 ## Project Description
 
-This project is an extension of **Assignment 2 – Part 1**.
-It is a server-side application built with **Node.js and Express.js**, connected to a **MongoDB** database, and implements a full **CRUD REST API** for managing items.
+This project is a continuation of Assignment 2 and represents a fullstack web application.
 
-The application demonstrates database integration, request validation, error handling, and correct usage of HTTP status codes.
+It includes:
+- Backend API built with Node.js and Express
+- MongoDB database integration
+- Browser-based frontend interface (HTML, CSS, JavaScript)
+- Full CRUD functionality (Create, Read, Update, Delete)
+- Deployment to Render
+
+
+---
+
+## Live Demo (Render)
+
+https://<your-render-app>.onrender.com
 
 ---
 
 ## Technologies Used
 
-* Node.js
-* Express.js
-* MongoDB
-* HTML 
+Backend:
+- Node.js
+- Express.js
+- MongoDB
+- MongoDB Atlas
+
+Frontend:
+- HTML
+- CSS
+- JavaScript (fetch API)
+- Bootstrap
+
+Deployment:
+- Render
+
+---
+
+## Environment Variables
+
+The project uses environment variables stored in a .env file:
+
+PORT=3000  
+MONGODB_URI=
+
 
 ---
 
 ## Database
 
-**Database used:** MongoDB
+Database: MongoDB  
+Collection: items
 
-The database connection is established when the server starts.
+Document structure:
 
-### Collection: `items`
-
-| Field     | Type     | Description                        |
-| --------- | -------- | ---------------------------------- |
-| _id       | ObjectId | Unique identifier (auto generated) |
-| name      | String   | Item name                          |
-| price     | Number   | Item price                         |
-| createdAt | Date     | Creation date                      |
+| Field | Type | Description |
+|-----|------|------------|
+| _id | ObjectId | Auto-generated identifier |
+| name | String | Item name |
+| price | Number | Item price |
+| createdAt | Date | Creation timestamp |
 
 ---
 
 ## API Routes (CRUD)
 
-### Get all items
-
-```
+Get all items:
 GET /api/items
-```
 
-Optional query parameters:
-
-* `name` – filter items by name (case insensitive)
-* `sort` – sort results (e.g. `price` or `-price`)
-* `fields` – projection (e.g. `name,price`)
-
----
-
-### Get item by ID
-
-```
+Get item by ID:
 GET /api/items/:id
-```
 
----
-
-### Create new item
-
-```
+Create item:
 POST /api/items
-```
 
-Example request body:
-
-```json
+Request body example:
 {
-  "name": "Apple",
-  "price": 300
+  "name": "iPhone 15",
+  "price": 499999
 }
-```
 
----
-
-### Update item
-
-```
+Update item:
 PUT /api/items/:id
-```
 
-Example request body:
-
-```json
-{
-  "name": "Green Apple",
-  "price": 320
-}
-```
-
----
-
-### Delete item
-
-```
+Delete item:
 DELETE /api/items/:id
-```
 
 ---
 
-## Validation & HTTP Status Codes
+## Frontend Functionality
 
-* **200 OK** – Successful GET, PUT, DELETE
-* **201 Created** – Item successfully created
-* **400 Bad Request**
+The web interface provides:
+- Display of items in a table
+- Create items using a form
+- Edit existing items
+- Delete items using buttons
+- Dynamic data loading from backend API
+- No usage of Postman during demonstration
 
-  * Invalid ID
-  * Missing required fields
-* **404 Not Found** – Item does not exist
-* **500 Internal Server Error** – Server or database error
 
 ---
 
 ## Pages
 
-The application also serves static HTML pages:
-
-* `/` – Home page
-* `/about` – About page
-* `/contact` – Contact page
+/ – Home page with CRUD interface  
+/about – About page  
+/contact – Contact page  
+/api/* – JSON API routes
 
 ---
 
 ## Error Handling
 
-* API routes (`/api/...`) return **JSON errors**
-* Page routes return a custom **404 HTML page**
-
-This separation ensures correct behavior for both API consumers and browser users.
+- API routes return JSON error responses
+- Invalid API routes return JSON 404
+- Page routes return a custom HTML 404 page
+- Input validation for IDs and request bodies
 
 ---
 
-## How to Run the Project
+## How to Run Locally
 
-1. Install dependencies:
+1. Clone the repository:
+git clone <repository-url>
 
-```
+2. Install dependencies:
 npm install
-```
 
-2. Start the server:
+3. Create a .env file:
+PORT=3000  
+MONGODB_URI=your_mongodb_uri
 
-```
+4. Start the server:
 node server.js
-```
 
-3. Open in browser:
-
-```
+5. Open in browser:
 http://localhost:3000
-```
 
 ---
-
