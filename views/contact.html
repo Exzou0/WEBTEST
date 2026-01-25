@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Contact</h1>
+
+    <p class="description">
+      Send us a message. This form will be processed by the server on POST /contact.
+    </p>
+
+    <form action="/contact" method="POST">
+      <h2>Contact Form</h2>
+
+      <p>
+        <label for="name"><b>Name</b></label><br />
+        <input id="name" name="name" type="text" required />
+      </p>
+
+      <p>
+        <label for="email"><b>Email</b></label><br />
+        <input id="email" name="email" type="email" required />
+      </p>
+
+      <p>
+        <label for="message"><b>Message</b></label><br />
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </p>
+
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</body>
+</html>
